@@ -61,3 +61,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "devise"
+gem "devise-bootstrap-views", "~> 1.0"
+gem 'alphavantage'
+gem 'httparty'
