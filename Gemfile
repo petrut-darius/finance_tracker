@@ -64,5 +64,6 @@ end
 
 gem "devise"
 gem "devise-bootstrap-views", "~> 1.0"
-gem 'alphavantage'
-gem 'httparty'
+gem "alphavantage"
+gem "httparty"
+gem "font-awesome-rails"

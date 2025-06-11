@@ -7,5 +7,19 @@
  * depending on specificity.
  *
  * Consider organizing styles into separate files for maintainability.
+ *= require font-awesome
  */
+
+.no-right-padding{
+  padding-right: 0 !important;
+}
+
+.no-left-padding{
+  padding-left: 0 !important;
+}
+
+.search-area{
+  padding-top: 3rem;  
+}
+
 
