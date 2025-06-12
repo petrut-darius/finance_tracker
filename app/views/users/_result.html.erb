@@ -1,11 +1,21 @@
 <%= render "layouts/messages"%>
 
-<%= turbo_frame_tag 'results_turbo_stream' do %>
   <% if @stock %>
     <div class="card">
       <strong>Symbol:</strong> <%= @stock.ticker %><br>
       <strong>Name:</strong> <%= @stock.name %><br>
       <strong>Price:</strong> <%= @stock.last_price %>
+      <% if current_user.can_track_stock?(@stock.ticker) %>    
+        <%= link_to "Add to portofolio", user_stocks_path( user: current_user, ticker: @stock.ticker ), class: "btn btn-success", data: { turbo_method: :post } %>
+      <% else %>
+        <span class = "badge badge-secondary">
+          <% if !current_user.under_stock_limit?%>
+            You are already tracking 10 stock's
+          <% end %>
+          <% if current_user.stock_already_tracked?(@stock.ticker) %>
+            You are already tracking this stock            
+          <% end %>
+        </span>
+      <% end %>
     </div>
   <% end %>
-<%end%>
