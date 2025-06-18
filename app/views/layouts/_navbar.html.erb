@@ -15,6 +15,13 @@
                 <% end %>
               </li>
               <li class="nav-item">
+                <% if request.path == my_friends_path%>
+                  <%= link_to "My friends", my_friends_path, class: "nav-link active"%>
+                <% else%>
+                  <%= link_to "My friends", my_friends_path, class: "nav-link"%>
+                <% end %>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#">Features</a>
               </li>
               <li class="nav-item">
@@ -22,13 +29,16 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown link
+                  Profile
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item"%></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
+              </li>
+              <li class="nav-item user-name">
+                <%= current_user.full_name %>
               </li>
               <li class="nav-item">
                 <%= link_to "Log out!", destroy_user_session_path, class: "btn btn-danger", data: { turbo_method: :delete} %>

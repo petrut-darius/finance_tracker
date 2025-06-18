@@ -22,4 +22,11 @@
   padding-top: 3rem;  
 }
 
+.user-name{
+  margin-top: 1.5%;
+  padding-right: 5px;
+}
 
+.badge{
+  color: black;
+}

@@ -1,0 +1,25 @@
+<%= render "layouts/messages"%>
+
+<% if @friends %>
+  <div class="card p-3">
+    <table class="col-md-12">
+      <tbody>
+    <% @friends.each do |friend|%>
+      <tr>
+        <td><strong>Name:</strong> <%=  friend.full_name%><br></td>
+        <td><strong>Email:</strong> <%= friend.email %><br></td>
+        <td><strong>Actions:</strong><%= link_to "View profile", user_path(friend), class: "btn btn-sm btn-success" %><br></td>
+        <% if current_user.not_friends_with?(friend.id)%>
+          <td><%= link_to "Follow friend?", friendships_path(friend: friend), class: "btn btn-sm btn-succes",  data: { turbo_method: :post } %></td>
+        <% else %>
+          <td class = "badge badge-secondary">
+            You are friends
+          </td>
+        <% end %>
+    <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <p>No matching users found.</p>
+<% end %>

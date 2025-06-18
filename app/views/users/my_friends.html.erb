@@ -1,0 +1,31 @@
+<h1>My portfolio</h1>
+
+<div class="search-area">
+  <h3>Search Friends</h3>
+  <%= form_with url: search_friend_path, method: "get", data: { turbo_frame: "search_friend_results" } do %>
+    <div class="form-group row">
+      <div class="col-sm-9">
+        <%= text_field_tag :friend, params[:friend], placeholder: "Name or Email", autofocus: true, class: "form-control form-control-lg" %>
+      </div>
+      <div class="col-sm-3">
+        <%= button_tag type: :submit, class: "btn btn-success" do %>
+          Search
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
+<%= turbo_frame_tag "search_friend_results" do %>
+  <%= render "users/friend_result" %>
+<% end %>
+
+<br>
+
+<% if @tracked_friends.present? %>
+  <%= render "friends/list" %>
+<% else %>
+  <p>You do not have friends, on this app!</p>
+<% end %>
