@@ -1,24 +1,7 @@
-# README
+This is a Finance Tracker app
+- you can create user's
+- track a stock
+- have a friendship relation with another user
+  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It uses some API, that has limit on the free plan for 20 or 25 request's
